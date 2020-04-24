@@ -12,6 +12,9 @@ new Vue({
       // Markdown rendered to HTML
       return marked(this.content);
     },
+    addButtonTitle () {
+      return this.notes.length + ' note(s) already'
+    },
   },
   created () {
   },
