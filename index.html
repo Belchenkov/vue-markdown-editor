@@ -15,9 +15,7 @@
   <div id="notebook">
 
     <aside class="side-bar">
-      <!-- Toolbar -->
       <div class="toolbar">
-        <!-- Add note button -->
         <button
                 :title="addButtonTitle"
                 @click="addNote"
@@ -25,6 +23,9 @@
           <i class="material-icons">add</i>
           Add note
         </button>
+      </div>
+      <div class="notes">
+        <div class="note" v-for="note of notes">{{note.title}}</div>
       </div>
     </aside>
 
@@ -39,7 +40,6 @@
 
   </div>
 
-  <!-- Some JavaScript -->
   <script src="js/script.js"></script>
 </body>
 </html>
