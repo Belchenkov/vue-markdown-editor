@@ -3,6 +3,7 @@
   <title>Vue Markdown Editor</title>
   <!-- Icons & Stylesheets -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina+2:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -12,6 +13,17 @@
 
   <!-- Notebook app -->
   <div id="notebook">
+
+    <aside class="side-bar">
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <!-- Add note button -->
+        <button @click="addNote">
+          <i class="material-icons">add</i>
+          Add note
+        </button>
+      </div>
+    </aside>
 
     <!-- Main pane -->
     <section class="main">
