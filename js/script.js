@@ -4,7 +4,7 @@ new Vue({
   data () {
     return {
       content: localStorage.getItem('content') || 'You can write in **markdown**',
-      notes: [],
+      notes: JSON.parse(localStorage.getItem('notes')) || [],
       selectedId: null
     }
   },
@@ -17,14 +17,13 @@ new Vue({
       return this.notes.length + ' note(s) already'
     },
     selectedNote () {
-      // We return the matching note with selectedId
       return this.notes.find(note => note.id === this.selectedId)
     },
   },
   methods: {
-    saveNote () {
-      localStorage.setItem('content', this.content);
-      this.reportOperation('saving');
+    saveNotes () {
+      localStorage.setItem('notes', JSON.stringify(this.notes))
+      console.log('Notes saved!', new Date());
     },
     reportOperation (opName) {
       console.log('The', opName, 'operation was completed!')
@@ -47,6 +46,10 @@ new Vue({
     }
   },
   watch: {
-    content: 'saveNote'
+    notes: {
+      handler: 'saveNotes',
+      // Watch each note's properties inside the array
+      deep: true
+    }
   },
 })
