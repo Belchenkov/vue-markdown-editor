@@ -5,7 +5,7 @@ new Vue({
     return {
       content: localStorage.getItem('content') || 'You can write in **markdown**',
       notes: JSON.parse(localStorage.getItem('notes')) || [],
-      selectedId: null
+      selectedId: localStorage.getItem('selected-id') || null
     }
   },
   computed: {
@@ -50,6 +50,9 @@ new Vue({
       handler: 'saveNotes',
       // Watch each note's properties inside the array
       deep: true
+    },
+    selectedId (val) {
+      localStorage.setItem('selected-id', val);
     }
   },
 })
