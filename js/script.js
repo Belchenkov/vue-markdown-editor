@@ -5,18 +5,21 @@ new Vue({
     return {
       content: localStorage.getItem('content') || 'You can write in **markdown**',
       notes: [],
+      selectedId: null
     }
   },
   computed: {
     notePreview () {
       // Markdown rendered to HTML
-      return marked(this.content);
+      return this.selectedNote ? marked(this.selectedNote.content) : '';
     },
     addButtonTitle () {
       return this.notes.length + ' note(s) already'
     },
-  },
-  created () {
+    selectedNote () {
+      // We return the matching note with selectedId
+      return this.notes.find(note => note.id === this.selectedId)
+    },
   },
   methods: {
     saveNote () {
@@ -39,6 +42,9 @@ new Vue({
 
       this.notes.push(note);
     },
+    selectNote (note) {
+      this.selectedId = note.id
+    }
   },
   watch: {
     content: 'saveNote'
