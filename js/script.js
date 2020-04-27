@@ -28,6 +28,9 @@ new Vue({
     reportOperation (opName) {
       console.log('The', opName, 'operation was completed!')
     },
+    favoriteNote () {
+      this.selectedNote.favorite ^= true;
+    },
     removeNote () {
       if (this.selectedNote && confirm('Delete the note?')) {
         const index = this.notes.indexOf(this.selectedNote);

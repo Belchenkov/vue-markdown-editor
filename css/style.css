@@ -162,3 +162,11 @@ h4 {
 .btn-del:hover {
   background: #b81818;
 }
+
+.btn-favorite {
+  background: #d9e009;
+}
+
+.btn-favorite:hover {
+  background: #afbc18;
+}
