@@ -28,6 +28,15 @@ new Vue({
     reportOperation (opName) {
       console.log('The', opName, 'operation was completed!')
     },
+    removeNote () {
+      if (this.selectedNote && confirm('Delete the note?')) {
+        const index = this.notes.indexOf(this.selectedNote);
+
+        if (index !== -1) {
+          this.notes.splice(index, 1);
+        }
+      }
+    },
     addNote () {
       const time = Date.now();
 

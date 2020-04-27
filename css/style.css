@@ -154,3 +154,11 @@ h4 {
   font-size: 1.1em;
   font-weight: normal;
 }
+
+.btn-del {
+  background: #db0f0f;
+}
+
+.btn-del:hover {
+  background: #b81818;
+}

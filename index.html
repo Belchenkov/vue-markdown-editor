@@ -37,6 +37,12 @@
     <template v-if="selectedNote">
       <!-- Main pane -->
       <section class="main">
+        <div class="toolbar">
+          <input v-model="selectedNote.title" placeholder="Note title" />
+          <button type="button" class="btn-del" @click="removeNote" title="Remove note">
+            <i class="material-icons">delete</i>
+          </button>
+        </div>
         <textarea v-model="selectedNote.content"></textarea>
       </section>
 
